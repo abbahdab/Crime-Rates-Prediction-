@@ -58,7 +58,7 @@ crimes = crimes.dropna()
 target = crimes.drop(columns = ['Time of Day'])
 target.head()
 
-y = crimes['Time Occurred'].values
+y = crimes['Time of Day']
 
 X_train, X_test, y_train, y_test = train_test_split(target, y, test_size = 0.6)
 
