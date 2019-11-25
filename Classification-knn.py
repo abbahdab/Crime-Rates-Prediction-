@@ -55,7 +55,7 @@ plt.show()
 
 crimes = crimes.dropna()
 
-target = crimes.drop(columns = ['Time of Day'])
+target = crimes.drop(columns = ['Time of Day','Time Occurred'])
 target.head()
 
 y = crimes['Time of Day']
