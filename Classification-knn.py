@@ -80,7 +80,8 @@ print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
 print(confusion_matrix(y_test, y_pred))
 #print(classification_report(y_test, y_pred))
 
-for k in range(0,30):
+k = 0
+for k in range(1,11):
     knn = KNeighborsClassifier(n_neighbors=k)
     knn.fit(X_train, y_train)
     y_pred = knn.predict(X_test)
