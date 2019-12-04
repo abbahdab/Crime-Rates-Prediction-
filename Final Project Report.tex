@@ -1,0 +1,75 @@
+\documentclass{article}
+
+% set font encoding for PDFLaTeX, XeLaTeX, or LuaTeX
+\usepackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+\ifxetexorluatex
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+\usepackage{hyperref}
+
+\title{Final Project Proposal}
+\author{Abby Abraham, Marshall Grimmett, and Patrick Caracci}
+
+% Enable SageTeX to run SageMath code right inside this LaTeX file.
+% http://doc.sagemath.org/html/en/tutorial/sagetex.html
+% \usepackage{sagetex}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Crime is a never ending issue that occurs every single day. But crime rates vary from location, dates, time of day and even by the gender of the offender. Our team thought it would be interesting to analyze the crime data of a popular city such as Los Angeles and try to predict the crime rate for the future. The data set we have chosen is from 2015-2018, and since we are currently approaching the end of 2019, we can see how accurate our predictions are for the specific year of 2019.
+
+\section{Features}
+This data set is very unique because it includes many labels that will allow us to analyze different parts of the data to come with more intriguing predictions. The features can be grouped into 4 independent categories: type of crime, victim demographics, location, and date/time.
+
+The labels include: Crime Code, Crime Code Description, MO Codes, Victim Age, Victim Sex, Victim Descent, Premise Code, Premise Description, Weapon Used Code, Weapon Description, Status Code, Status Description, Crime Code 1, Crime Code 2,Crime Code 3, Crime Code 4, Address, Cross Street, and Location.
+
+% \subsection{List of Features}
+% \begin{itemize}
+% \item Crime Code
+% \item Crime Code Description
+% \item MO Codes
+% \item Victim Age
+% \item Victim Sex
+% \item Victim Descent
+% \item Premise Code
+% \item Premise Description
+% \item Weapon Used Code
+% \item Weapon Description
+% \item Status Code
+% \item Status Description
+% \item Crime Code 1
+% \item Crime Code 2
+% \item Crime Code 3
+% \item Crime Code 4
+% \item Address
+% \item Cross Street
+% \item Location
+% \end{itemize}
+
+\section{Methods}
+
+\begin{itemize}
+	\item Regression: By choosing this data set we are mainly hoping to recognize the trends within the data and also to predict future crime rates, which we could do with polynomial regression.
+	\item Classification: An idea the team had was to predict during what time of day did more severe crimes occur. Considering all crimes are given crime codes in the data set, we plan to classify the severity of the crimes using K-nearest neighbors classifier.
+	\item Clustering: Since we are also given the gender of the victim, we also plan to utilize clustering in order to see which gender predominately falls victim to what type of crimes (not very severe to very severe). We could use K-means with $k=2$ for gender and see if there is any correlation with crime severity.
+\end{itemize}
+
+\end{document}
