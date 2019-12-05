@@ -53,6 +53,9 @@ print('Crimes committed in the night:',nightCount)
 sns.countplot(crimes['Time of Day'], label = 'Crime Count')
 plt.show()
 
+sns.countplot(crimes['Time of Day'], label = 'Crime Count')
+plt.show()
+
 crimes = crimes.dropna()
 
 target = crimes.drop(columns = ['Time of Day','Time Occurred'])
