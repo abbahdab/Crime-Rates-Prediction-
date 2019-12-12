@@ -17,8 +17,9 @@ def test(df, path):
     df = pd.read_csv(path)
     return df
 
-def run(data, path):
+def run(data, catCols, path):
     data = pd.read_csv(path)
+    data.sample(n=10000, replace=True)
     
     # Slow computation
     # Split the location into two seperate columns, longitude and latitude
@@ -56,14 +57,21 @@ def run(data, path):
     # Removed 'Address', 'Cross Street' for same reasons
     #http://queirozf.com/entries/one-hot-encoding-a-feature-on-a-pandas-dataframe-an-example
     
-    catCols = [
-        'Area Name', 'Reporting District',
-        'Crime Code Description', 'Victim Age', 'Victim Sex',
-        'Victim Descent', 'Premise Description',
-        'Weapon Description',
-        'Status Description', 'Crime Code 1', 'Crime Code 2', 'Crime Code 3',
-        'Crime Code 4'
-    ]
+#    catCols = [
+#        'Area Name', 'Reporting District',
+#        'Crime Code Description', 'Victim Age', 'Victim Sex',
+#        'Victim Descent', 'Premise Description',
+#        'Weapon Description',
+#        'Status Description', 'Crime Code 1', 'Crime Code 2', 'Crime Code 3',
+#        'Crime Code 4'
+#    ]
+    
+#    catCols = [
+#        'Area Name', 'Reporting District', 'Victim Age', 'Victim Sex',
+#        'Victim Descent', 'Premise Description',
+#        'Status Description', 'Crime Code 1', 'Crime Code 2', 'Crime Code 3',
+#        'Crime Code 4'
+#    ]
     
     for col in catCols:
         #print('Begin Column:', col)
@@ -79,13 +87,13 @@ def run(data, path):
     data.drop(catCols, axis=1, inplace=True)
     
     # Remove other columns that weren't dropped and we don't need.
-    data.drop([
-        'DR Number', 'Date Reported', 'Date Occurred',
-        'Area ID', 'Crime Code',
-        'MO Codes', 'Premise Code',
-        'Weapon Used Code',  'Status Code',
-        'Address', 'Cross Street', 'Location '
-    ], axis=1, inplace=True)
+#    data.drop([
+#        'DR Number', 'Date Reported', 'Date Occurred',
+#        'Area ID', 'Crime Code',
+#        'MO Codes', 'Premise Code',
+#        'Weapon Used Code',  'Status Code',
+#        'Address', 'Cross Street', 'Location '
+#    ], axis=1, inplace=True)
     
     # fill in null values with the mean of each column
     data[['Longitude']] = data[['Longitude']].fillna(data[['Longitude']].mean())
